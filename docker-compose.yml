@@ -1,0 +1,9 @@
+services:
+  advent-of-code:
+    container_name: advent-of-code
+    build: .
+    image: advent-of-code
+    working_dir: "/advent-of-code"
+    command: python run_solutions.py benchmark
+    volumes:
+      - ./:/advent-of-code
