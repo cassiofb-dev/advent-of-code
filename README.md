@@ -7,7 +7,6 @@
 <p align="center">
   <a href="#about">About</a> •
   <a href="#usage">Usage</a> •
-  <a href="#problems">Problems</a> •
   <a href="#benchmarks">Benchmarks</a> •
   <a href="#credits">Credits</a> •
   <a href="#license">License</a>
