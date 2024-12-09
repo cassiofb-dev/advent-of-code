@@ -1,9 +1,7 @@
 import csv
 
-filename = 'editions/2024/02/input.txt'
-
 levels_matrix = []
-with open(filename) as file:
+with open('editions/2024/02/input.txt') as file:
     reader = csv.reader(
         file,
         delimiter=' ',
@@ -15,6 +13,7 @@ with open(filename) as file:
         levels_matrix.append(row)
 
 safe_reports = 0
+fixed_reports = 0
 for levels_row in levels_matrix:
     for attempt in range(-1, len(levels_row)):
         levels = levels_row.copy()
@@ -40,7 +39,11 @@ for levels_row in levels_matrix:
         if delta_signal < 0:
             continue
 
-        safe_reports += 1
+        if attempt == -1:
+            safe_reports += 1
+        else:
+            fixed_reports += 1
         break
 
-print(safe_reports)
+print(f"Part 1: {safe_reports}")
+print(f"Part 2: {safe_reports + fixed_reports}")

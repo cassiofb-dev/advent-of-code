@@ -141,6 +141,7 @@ int main(int argc, char const *argv[])
     }
 
     int safe_reports = 0;
+    int fixed_reports = 0;
     char line[MAX_LINE_LENGTH] = {0};
     while (fgets(line, sizeof(line), file))
     {
@@ -189,7 +190,14 @@ int main(int argc, char const *argv[])
             free_linked_list(aux_list);
             if (is_report_safe)
             {
-                safe_reports++;
+                if (remove_index == -1)
+                {
+                    safe_reports++;
+                }
+                else
+                {
+                    fixed_reports++;
+                }
                 break;
             }
         }
@@ -199,7 +207,8 @@ int main(int argc, char const *argv[])
 
     fclose(file);
 
-    printf("%d", safe_reports);
+    printf("Part 01: %d\n", safe_reports);
+    printf("Part 02: %d\n", safe_reports + fixed_reports);
 
     return 0;
 }
